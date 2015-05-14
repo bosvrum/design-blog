@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
-
-  # root 'welcome#index'
+  get 'welcome/index'
+  root 'welcome#index'
 
 end
