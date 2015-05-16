@@ -1,0 +1,40 @@
+<div id="post_show_content" class="skinny_wrapper wrapper_padding">
+  <header>
+      <p class="date"><%= @video.created_at.strftime('%A, %B %d')%></p>
+      <h1><%= @video.title %></h1>
+      <hr>
+  </header>
+
+  <div id="content">
+    <div id="wistia_<%= @video.link %>">
+      
+    </div>
+
+    <br>
+    <br>
+
+      <%= markdown @video.description  %>
+  </div>
+  <% if user_signed_in? %>
+    <div id="admin_links">
+      <%= link_to "Edit video", edit_video_path(@video) %>
+      <%= link_to "Delete video", video_path(@video), method: :delete, data: { confirm: "Are you sure?"} %>
+    </div>
+  <% end %>
+
+  <hr>
+  <%= render 'disqus'  %>
+</div>
+
+
+<script src="http://fast.wistia.net/static/E-v1.js"></script>
+<script>
+wistiaEmbed = Wistia.embed("<%= @video.link %>", {
+  videoQuality: "hd-only",
+  videoFoam: true
+});
+
+function setPlaySpeed (speed) {
+  wistiaEmbed.playbackRate(speed)
+}
+</script>
