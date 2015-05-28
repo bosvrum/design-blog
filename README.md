@@ -31,7 +31,6 @@ Sendgrid
 User (Devise)
 User Stories
 
-As a blank, I want to be able to blank, so that blank.
 
 As a user, I want to be able to create posts so that I can share what I am learning on my blog.
 As a user, I want to be able to edit & destroy posts, so that I can manage my blog.
@@ -56,4 +55,5 @@ Posts#Show
 Projects#index
 Projects#show
 Videos#index
+Videos#show
 Contact
